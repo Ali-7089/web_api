@@ -1,5 +1,5 @@
 
 const mongoose = require('mongoose')
-mongoose.connect('mongodb+srv://ali:Guddu@1234@cluster0.0jdco.mongodb.net/web_api?retryWrites=true&w=majority')
-.then(response => console.log(response))
+mongoose.connect( process.env.MONGODB_CONNECTION_URL, {useFindAndModify:false,useNewUrlParser:true , useUnifiedTopology:true})
+.then(() => console.log('database connected'))
 .catch(err =>console.log(err))
